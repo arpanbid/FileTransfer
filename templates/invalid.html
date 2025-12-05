@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="alert alert-danger mx-auto" role="alert" style="max-width:720px;">
+    <h4 class="alert-heading">Invalid or expired code!</h4>
+    <p>The code you entered is invalid or the file has been removed.</p>
+    <hr>
+    <a class="btn btn-primary" href="{{ url_for('receive') }}">Try Again</a>
+  </div>
+{% endblock %}

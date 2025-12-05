@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="card mx-auto" style="max-width:720px;">
+    <div class="card-body">
+      <h2 class="card-title">Send File</h2>
+      <p>Your Code: <span class="badge bg-secondary code-badge">{{ code }}</span></p>
+
+      <form action="{{ url_for('upload', code=code) }}" method="post" enctype="multipart/form-data" class="mt-3">
+        <div class="mb-3">
+          <input class="form-control" type="file" name="file" multiple required>
+          <small class="form-text text-muted">You can select multiple files.</small>
+        </div>
+        <div class="d-flex gap-2">
+          <button type="submit" class="btn btn-success">Upload & Share</button>
+          <a href="{{ url_for('home') }}" class="btn btn-outline-secondary">Back</a>
+        </div>
+      </form>
+
+      <p class="text-muted mt-3 small">Share the code above to let someone download the uploaded file(s).</p>
+    </div>
+  </div>
+{% endblock %}

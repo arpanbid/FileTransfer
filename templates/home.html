@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="d-flex flex-column align-items-center gap-3">
+    <h1 class="mt-3 text-center">Local File Transfer</h1>
+
+    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+      <a class="btn btn-primary btn-lg" href="{{ url_for('send_page') }}">Send File</a>
+      <a class="btn btn-outline-primary btn-lg" href="{{ url_for('receive') }}">Receive File</a>
+    </div>
+
+    <div class="w-100 mt-3">
+      <div class="alert alert-info text-center small" role="alert">
+        Open this URL on the other device to access this app:
+        <div class="mt-2">
+          <a href="{{ request.host_url }}" class="fw-bold">{{ request.host_url }}</a>
+        </div>
+        <div class="mt-2 text-muted">If the above shows <code>127.0.0.1</code> or <code>localhost</code>, use this machine's LAN IP with port 5050 (for example <code>http://192.168.1.5:5050/</code>).</div>
+      </div>
+    </div>
+
+    <p class="text-muted mt-1 small">Works on mobile and desktop. Upload file(s), then share the generated code with the receiver.</p>
+  </div>
+{% endblock %}
